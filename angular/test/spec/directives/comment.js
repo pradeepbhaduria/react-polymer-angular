@@ -9,7 +9,7 @@ describe('Directive: comment', function () {
 
   beforeEach(inject(function ($rootScope, $compile) {
     scope = $rootScope.$new();
-    element = angular.element('<comment-model author="Santiago">hola</comment-model>');
+    element = angular.element('<comment-model author="Santiago"><div>hola</div><div class="timestamp">1 hour ago</div></comment-model>');
     element = $compile(element)(scope);
     scope.$digest();
   }));
@@ -19,6 +19,10 @@ describe('Directive: comment', function () {
   });
 
   it('should render the msg', function (){
-    expect(element.find('span').html()).toBe('hola');
+    expect(angular.element(element.find('div').children().find('div')[0]).html()).toBe('hola');
+  });
+
+  it('should render the time', function (){
+    expect(angular.element(element.find('div').children().find('div')[1]).html()).toBe('1 hour ago');
   });
 });
