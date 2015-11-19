@@ -11,7 +11,8 @@ angular.module('commentList', ['comment'])
     return {
       template: '<div class="commentList">' +
                   '<comment-model ng-repeat="comment in comments" author="{{comment.author}}">' +
-                    '{{comment.msg}}' + '<span> {{comment.timestamp | customdate}}</span>' +
+                    '<div class="msg">{{comment.msg}}</div>' +
+                    '<div class="timestamp">{{comment.timestamp | customdate}}</div>' +
                   '</comment-model>' +
                   '<span ng-if="comments.length < 1">No comments yet</span>' +
                 '</div>',
