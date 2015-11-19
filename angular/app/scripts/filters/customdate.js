@@ -1,4 +1,6 @@
-angular.module('commentList').filter('customdate', function () {
+/*jslint vars: true, plusplus: true, devel: true, nomen: true*/
+/*global angular */
+angular.module('comment').filter('customdate', function () {
     'use strict';
     return function (input) {
         var formattedDate = '',
